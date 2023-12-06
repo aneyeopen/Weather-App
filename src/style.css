@@ -1,0 +1,13 @@
+body {
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.weatherFormLeft, .weatherFormRight {
+  min-width: 50%;
+  min-height: 100vh;
+  background-color: aqua;
+  margin: auto;
+}/*# sourceMappingURL=style.css.map */
