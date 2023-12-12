@@ -1,8 +1,15 @@
+$fonts: 'Poppins', Helvertica, sans-serif;
+$primary-color: #f1f0f1;
+$spacing: 2rem;
+
 body {
     min-width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: row;
+    font-family: $fonts;
+    color: $primary-color;
+    padding: $spacing;
 }
 
 .weatherFormLeft, .weatherFormRight {
@@ -10,4 +17,28 @@ body {
     min-height: 100vh;
     background-color: aqua;
     margin: auto;
+}
+
+.weatherFormLeft{
+    border-right: black solid 3px;
+    background: url(./Resources/Backgrounds/Night.gif);
+    background-size: cover;
+
+}
+
+.weatherFormRight{
+    border-left: black solid 3px;
+    background: url(./Resources/Backgrounds/Rain.gif);
+    background-size: cover;
+
+}
+
+.weatherFormMain {
+    display: flex;
+    flex-direction: row;
+}
+
+.forecastContainer {
+    display: flex;
+    flex-direction: row;
 }

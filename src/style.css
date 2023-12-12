@@ -3,6 +3,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: row;
+  font-family: "Poppins", Helvertica, sans-serif;
+  color: #f1f0f1;
+  padding: 2rem;
 }
 
 .weatherFormLeft, .weatherFormRight {
@@ -10,4 +13,26 @@ body {
   min-height: 100vh;
   background-color: aqua;
   margin: auto;
+}
+
+.weatherFormLeft {
+  border-right: black solid 3px;
+  background: url(./Resources/Backgrounds/Night.gif);
+  background-size: cover;
+}
+
+.weatherFormRight {
+  border-left: black solid 3px;
+  background: url(./Resources/Backgrounds/Rain.gif);
+  background-size: cover;
+}
+
+.weatherFormMain {
+  display: flex;
+  flex-direction: row;
+}
+
+.forecastContainer {
+  display: flex;
+  flex-direction: row;
 }/*# sourceMappingURL=style.css.map */
