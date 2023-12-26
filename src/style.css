@@ -1,38 +1,70 @@
 body {
-  min-width: 100%;
-  min-height: 100vh;
+  width: 100%;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
   display: flex;
   flex-direction: row;
   font-family: "Poppins", Helvertica, sans-serif;
   color: #f1f0f1;
-  padding: 2rem;
+  padding: 0;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .weatherFormLeft, .weatherFormRight {
   min-width: 50%;
-  min-height: 100vh;
-  background-color: aqua;
+  height: 100vh;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .weatherFormLeft {
   border-right: black solid 3px;
   background: url(./Resources/Backgrounds/Night.gif);
   background-size: cover;
+  background-position: center;
 }
 
 .weatherFormRight {
   border-left: black solid 3px;
   background: url(./Resources/Backgrounds/Rain.gif);
   background-size: cover;
+  background-position: center;
+}
+
+.searchBox {
+  display: flex;
+  justify-content: center;
 }
 
 .weatherFormMain {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+}
+
+.weatherDetails, .weatherStatsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.weatherStats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .forecastContainer {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }/*# sourceMappingURL=style.css.map */
