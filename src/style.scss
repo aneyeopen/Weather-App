@@ -54,19 +54,20 @@ input[type=text] {
     color: $primary-color;
     border-bottom: solid 1px $primary-color;
     transition: width 0.4s ease-in-out;
-}
-
-input[type=text]:focus {
-    width: 70%;
+    
+    &:focus {
+        width: 70%;
     border: none;
     border-bottom: solid 1px $primary-color;
     outline: none;
+    }
+
+    &::placeholder{
+        color: $primary-color;
+        opacity: 0.75;
+    }
 }
 
-input::placeholder {
-color: $primary-color;
-opacity: 0.75;
-}
 
 .searchInput{
     border-radius: 2px;
@@ -100,4 +101,35 @@ opacity: 0.75;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+}
+
+
+.weatherDetails{
+
+    &__description{
+        font-size: 1.8rem;
+    }
+
+    &__subContainer{
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__city{
+        font-size: 1.8rem;
+        font-weight: 400;
+    }
+
+    &__date, &__time{
+        font-size: 1.3rem;
+        margin: 5px;
+    }
+
+    &__temp {
+        font-size: 3.2rem;
+        font-weight: 700;
+    }
+
+
+
 }

@@ -49,20 +49,17 @@ input[type=text] {
   border-bottom: solid 1px #f1f0f1;
   transition: width 0.4s ease-in-out;
 }
-
 input[type=text]:focus {
   width: 70%;
   border: none;
   border-bottom: solid 1px #f1f0f1;
   outline: none;
 }
-
-input::-moz-placeholder {
+input[type=text]::-moz-placeholder {
   color: #f1f0f1;
   opacity: 0.75;
 }
-
-input::placeholder {
+input[type=text]::placeholder {
   color: #f1f0f1;
   opacity: 0.75;
 }
@@ -99,4 +96,24 @@ input::placeholder {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+
+.weatherDetails__description {
+  font-size: 1.8rem;
+}
+.weatherDetails__subContainer {
+  display: flex;
+  flex-direction: row;
+}
+.weatherDetails__city {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.weatherDetails__date, .weatherDetails__time {
+  font-size: 1.3rem;
+  margin: 5px;
+}
+.weatherDetails__temp {
+  font-size: 3.2rem;
+  font-weight: 700;
 }/*# sourceMappingURL=style.css.map */
