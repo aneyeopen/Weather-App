@@ -39,6 +39,38 @@ body {
 .searchBox {
   display: flex;
   justify-content: center;
+  border: none;
+  color: #f1f0f1;
+}
+
+input[type=text] {
+  border: none;
+  color: #f1f0f1;
+  border-bottom: solid 1px #f1f0f1;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 70%;
+  border: none;
+  border-bottom: solid 1px #f1f0f1;
+  outline: none;
+}
+
+input::-moz-placeholder {
+  color: #f1f0f1;
+  opacity: 0.75;
+}
+
+input::placeholder {
+  color: #f1f0f1;
+  opacity: 0.75;
+}
+
+.searchInput {
+  border-radius: 2px;
+  padding: 4px;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .weatherFormMain {

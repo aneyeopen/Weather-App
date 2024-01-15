@@ -44,7 +44,36 @@ body {
 .searchBox {
     display: flex;
     justify-content: center;
+    border: none;
+    color: $primary-color;
+    
 }
+
+input[type=text] {
+    border: none;
+    color: $primary-color;
+    border-bottom: solid 1px $primary-color;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 70%;
+    border: none;
+    border-bottom: solid 1px $primary-color;
+    outline: none;
+}
+
+input::placeholder {
+color: $primary-color;
+opacity: 0.75;
+}
+
+.searchInput{
+    border-radius: 2px;
+    padding: 4px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
 .weatherFormMain {
     display: flex;
     flex-direction: row;
