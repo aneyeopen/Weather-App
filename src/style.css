@@ -114,6 +114,28 @@ input[type=text]::placeholder {
   justify-content: space-around;
 }
 
+.forecastDaily {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 6px;
+  align-items: flex-start;
+}
+.forecastDaily__day {
+  font-size: 18px;
+}
+.forecastDaily__tempHigh {
+  font-size: 24px;
+  font-weight: 700;
+}
+.forecastDaily__tempLow {
+  font-size: 12px;
+}
+.forecastDaily__icon {
+  height: 50px;
+  width: auto;
+}
+
 .weatherDetails__description {
   font-size: 2.5rem;
   font-weight: 500;

@@ -120,6 +120,33 @@ input[type=text] {
     justify-content: space-around;
 }
 
+.forecastDaily{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 6px;
+    align-items: flex-start;
+
+    &__day{
+        font-size: 18px;
+    }
+
+    &__tempHigh{
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    &__tempLow{
+        font-size: 12px;
+    }
+
+    &__icon{
+        height: 50px;
+        width: auto;
+    }
+}
+
 
 .weatherDetails{
 
