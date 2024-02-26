@@ -1,0 +1,1 @@
+(()=>{const e=document.getElementById("leftSearchForm");e.addEventListener("submit",(t=>{t.preventDefault();const n=document.getElementById("leftSearch").value;console.log(n),e.reset()}))})();
