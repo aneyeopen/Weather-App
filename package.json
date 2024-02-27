@@ -1,8 +1,8 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Weather app that displays the forecast of two differing locations at the same time",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
@@ -23,5 +23,8 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "date-fns": "^3.3.1"
   }
 }
