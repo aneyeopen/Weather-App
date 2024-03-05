@@ -1,5 +1,3 @@
-import { da } from "date-fns/locale";
-
 
 
 
@@ -25,7 +23,18 @@ export const weatherPull = (function () {
     }
 
     function formatWeatherData(data) {
+        const currentHour = 12;
 
+        const weatherData = {
+            temp: `${Math.round(data.forecast.forecastday[0].hour[currentHour].temp_c)}°`,
+            feelsLike: `${data.forecast.forecastday[0].hour[currentHour].feelslike_c}°`,
+            location: `${data.location.name}, ${data.location.city}`,
+            condition: data.forecast.forecastday[0].hour[currentHour].condition.text,
+            precip: `${data.forecast.forecastday[0].hour[currentHour].precip_mm} mm`
+
+        }
+        return weatherData;
+        
     }
 
     function weatherFactory(city, temp) {
