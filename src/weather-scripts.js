@@ -14,7 +14,6 @@ export const weatherPull = (function () {
                 throw new Error("Network response not ok")
             }
             const data = await response.json();
-            console.log(data)
             return data;
         } catch (error) {
             console.error("Fetching weather data failed:", error);
@@ -27,22 +26,41 @@ export const weatherPull = (function () {
 
         const weatherData = {
             temp: `${Math.round(data.forecast.forecastday[0].hour[currentHour].temp_c)}°`,
+            tempHigh: `${Math.round(data.forecast.forecastday[0].day.maxtemp_c)}°`,
+            tempLow: `${Math.round(data.forecast.forecastday[0].day.mintemp_c)}°`,
             feelsLike: `${data.forecast.forecastday[0].hour[currentHour].feelslike_c}°`,
             location: `${data.location.name}, ${data.location.city}`,
             condition: data.forecast.forecastday[0].hour[currentHour].condition.text,
-            precip: `${data.forecast.forecastday[0].hour[currentHour].precip_mm} mm`
+            precip: `${data.forecast.forecastday[0].hour[currentHour].precip_mm} mm`,
+            windSpeed: `${data.forecast.forecastday[0].hour[currentHour].wind_kph} km/h`,
+            chanceOfRain: `${data.forecast.forecastday[0].hour[currentHour].chance_of_rain} %`,
+            dayOneTempHigh: `${Math.round(data.forecast.forecastday[1].day.maxtemp_c)}°`,
+            dayOneTempLow: `${Math.round(data.forecast.forecastday[1].day.mintemp_c)}°`,
+            dayOneCondition: data.forecast.forecastday[1].day.condition.text,
+            dayTwoTempHigh: `${Math.round(data.forecast.forecastday[2].day.maxtemp_c)}°`,
+            dayTwoTempLow: `${Math.round(data.forecast.forecastday[2].day.mintemp_c)}°`,
+            dayTwoCondition: data.forecast.forecastday[2].day.condition.text,
+            }
 
-        }
+        
         return weatherData;
         
     }
 
-    function weatherFactory(city, temp) {
-        return {
-            city,
-            temp
-        }
+    function loadWeatherData(city) {
+        pullWeatherData(city)
+            .then((data) => {
+                if (data) {
+                    const weatherData = formatWeatherData(data);
+                    console.log(data);
+                    console.log(weatherData);
+                }
+            })
+            .catch((error) => {
+                console.error("Error processing data:", error);
+            });
     }
+    
 
 
 
@@ -53,7 +71,9 @@ export const weatherPull = (function () {
 
 
     return {
-        weatherFactory,
-        pullWeatherData
+        
+        pullWeatherData,
+        formatWeatherData,
+        loadWeatherData
     }
 })();
