@@ -12,20 +12,16 @@ export const UI = (() => {
         // main form //
         description: document.getElementByID(appendSideToID(currSideString, "Desc")),
         city: document.getElementByID(appendSideToID(currSideString, "City")),
-        description: document.getElementByID(appendSideToID(currSideString, "Desc")),
+        date: document.getElementByID(appendSideToID(currSideString, "Date")),
         time: document.getElementByID(appendSideToID(currSideString, "Time")),
         temperature: document.getElementByID(appendSideToID(currSideString, "Temp")),
         icon: document.getElementByID(appendSideToID(currSideString, "Icon")),
 
         // stats //
 
-        statsFeelsLikeIcon: document.getElementByID(appendSideToID(currSideString, "FeelsLikeIcon")),
         statsFeelsLike: document.getElementByID(appendSideToID(currSideString, "FeelsLike")),
-        statsHumidityIcon: document.getElementByID(appendSideToID(currSideString, "HumidityIcon")),
         statsHumidity: document.getElementByID(appendSideToID(currSideString, "Humidity")),
-        statsChanceOfRainIcon: document.getElementByID(appendSideToID(currSideString, "ChanceOfRainIcon")),
         statsChanceOfRain: document.getElementByID(appendSideToID(currSideString, "ChanceOfRain")),
-        statsWindSpeedIcon: document.getElementByID(appendSideToID(currSideString, "WindSpeedIcon")),
         statsWindSpeed: document.getElementByID(appendSideToID(currSideString, "WindSpeed")),
 
         // forecast //
@@ -41,6 +37,30 @@ export const UI = (() => {
         forecastDayPlusTwoIcon: document.getElementByID(appendSideToID(currSideString, "DayPlusTwoIcon"))
 
 
+    }
+
+    function updateWeatherDisplay (
+        desc,
+        city,
+        date,
+        time,
+        temp,
+
+        feelsLike,
+        humidity,
+        chanceOfRain,
+        windSpeed,
+
+        forecastDayPlusOneDay,
+        forecastDayPlusOneTempHigh,
+        forecastDayPlusOneTempLow,
+
+        forecastDayPlusTwoDay,
+        forecastDayPlusTwoTempHigh,
+        forecastDayPlusTwoTempLow
+
+    ) {
+        
     }
 
     return {
