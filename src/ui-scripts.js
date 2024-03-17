@@ -10,31 +10,31 @@ export const UI = (() => {
 
     const displayLogic = {
         // main form //
-        description: document.getElementByID(appendSideToID(currSideString, "Desc")),
-        city: document.getElementByID(appendSideToID(currSideString, "City")),
-        date: document.getElementByID(appendSideToID(currSideString, "Date")),
-        time: document.getElementByID(appendSideToID(currSideString, "Time")),
-        temperature: document.getElementByID(appendSideToID(currSideString, "Temp")),
-        icon: document.getElementByID(appendSideToID(currSideString, "Icon")),
+        description: document.getElementById(appendSideToID(currSideString, "Desc")),
+        city: document.getElementById(appendSideToID(currSideString, "City")),
+        date: document.getElementById(appendSideToID(currSideString, "Date")),
+        time: document.getElementById(appendSideToID(currSideString, "Time")),
+        temperature: document.getElementById(appendSideToID(currSideString, "Temp")),
+        icon: document.getElementById(appendSideToID(currSideString, "Icon")),
 
         // stats //
 
-        statsFeelsLike: document.getElementByID(appendSideToID(currSideString, "FeelsLike")),
-        statsHumidity: document.getElementByID(appendSideToID(currSideString, "Humidity")),
-        statsChanceOfRain: document.getElementByID(appendSideToID(currSideString, "ChanceOfRain")),
-        statsWindSpeed: document.getElementByID(appendSideToID(currSideString, "WindSpeed")),
+        statsFeelsLike: document.getElementById(appendSideToID(currSideString, "FeelsLike")),
+        statsHumidity: document.getElementById(appendSideToID(currSideString, "Humidity")),
+        statsChanceOfRain: document.getElementById(appendSideToID(currSideString, "ChanceOfRain")),
+        statsWindSpeed: document.getElementById(appendSideToID(currSideString, "WindSpeed")),
 
         // forecast //
 
-        forecastDayPlusOneDay: document.getElementByID(appendSideToID(currSideString, "DayPlusOneDay")),
-        forecastDayPlusOneTempHigh: document.getElementByID(appendSideToID(currSideString, "DayPlusOneTempHigh")),
-        forecastDayPlusOneTempLow: document.getElementByID(appendSideToID(currSideString, "DayPlusOneTempLow")),
-        forecastDayPlusOneIcon: document.getElementByID(appendSideToID(currSideString, "DayPlusOneIcon")),
+        forecastDayPlusOneDay: document.getElementById(appendSideToID(currSideString, "DayPlusOneDay")),
+        forecastDayPlusOneTempHigh: document.getElementById(appendSideToID(currSideString, "DayPlusOneTempHigh")),
+        forecastDayPlusOneTempLow: document.getElementById(appendSideToID(currSideString, "DayPlusOneTempLow")),
+        forecastDayPlusOneIcon: document.getElementById(appendSideToID(currSideString, "DayPlusOneIcon")),
 
-        forecastDayPlusTwoDay: document.getElementByID(appendSideToID(currSideString, "DayPlusTwoDay")),
-        forecastDayPlusTwoTempHigh: document.getElementByID(appendSideToID(currSideString, "DayPlusTwoTempHigh")),
-        forecastDayPlusTwoTempLow: document.getElementByID(appendSideToID(currSideString, "DayPlusTwoTempLow")),
-        forecastDayPlusTwoIcon: document.getElementByID(appendSideToID(currSideString, "DayPlusTwoIcon"))
+        forecastDayPlusTwoDay: document.getElementById(appendSideToID(currSideString, "DayPlusTwoDay")),
+        forecastDayPlusTwoTempHigh: document.getElementById(appendSideToID(currSideString, "DayPlusTwoTempHigh")),
+        forecastDayPlusTwoTempLow: document.getElementById(appendSideToID(currSideString, "DayPlusTwoTempLow")),
+        forecastDayPlusTwoIcon: document.getElementById(appendSideToID(currSideString, "DayPlusTwoIcon"))
 
 
     }
@@ -60,7 +60,7 @@ export const UI = (() => {
         forecastDayPlusTwoTempLow
 
     ) {
-        
+
     }
 
     return {
