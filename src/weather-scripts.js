@@ -1,3 +1,4 @@
+import { UI } from "./ui-scripts";
 
 
 
@@ -28,7 +29,7 @@ export const weatherPull = (function () {
             temp: `${Math.round(data.forecast.forecastday[0].hour[currentHour].temp_c)}°`,
             tempHigh: `${Math.round(data.forecast.forecastday[0].day.maxtemp_c)}°`,
             tempLow: `${Math.round(data.forecast.forecastday[0].day.mintemp_c)}°`,
-            feelsLike: `${data.forecast.forecastday[0].hour[currentHour].feelslike_c}°`,
+            feelsLike: `${Math.round(data.forecast.forecastday[0].hour[currentHour].feelslike_c)}°`,
             location: `${data.location.name}, ${data.location.city}`,
             condition: data.forecast.forecastday[0].hour[currentHour].condition.text,
             precip: `${data.forecast.forecastday[0].hour[currentHour].precip_mm} mm`,
@@ -54,6 +55,10 @@ export const weatherPull = (function () {
                     const weatherData = formatWeatherData(data);
                     console.log(data);
                     console.log(weatherData);
+                    if(weatherData){
+                        UI.updateWeatherDisplay(weatherData);
+                    }
+                    
                 }
             })
             .catch((error) => {
