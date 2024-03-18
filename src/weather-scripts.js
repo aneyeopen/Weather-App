@@ -48,6 +48,15 @@ export const weatherPull = (function () {
         
     }
 
+    function splitLocation(locationString) {
+        if(locationString.includes(", undefined")) {
+            let newStr = locationString.replace(", undefined", "");
+            return newStr;
+        } else {
+            return locationString;
+        }
+    }
+
     function loadWeatherData(city) {
         pullWeatherData(city)
             .then((data) => {
@@ -79,6 +88,7 @@ export const weatherPull = (function () {
         
         pullWeatherData,
         formatWeatherData,
-        loadWeatherData
+        loadWeatherData,
+        splitLocation
     }
 })();

@@ -1,4 +1,3 @@
-import { UI } from "../src/ui-scripts"
 import { weatherPull } from "../src/weather-scripts";
 
 const searchOne = document.getElementById("leftSearchForm")
@@ -10,8 +9,5 @@ searchOne.addEventListener("submit", e => {
 
     searchOne.reset();
 })
-
-console.log(UI.appendSideToID("left", "right"))
-
 
 

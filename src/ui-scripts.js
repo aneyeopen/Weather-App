@@ -1,9 +1,13 @@
-import { format } from "date-fns";
+import { format, addDays } from "date-fns";
 import { weatherPull } from "./weather-scripts";
 
 export const UI = (() => {
     
     const currSideString = "left";
+    const date = new Date();
+    const datePlusOne = addDays(date, 1);
+    const datePlusTwo = addDays(date, 2);
+
     
     function appendSideToID(sideString, idString) {
         return sideString + idString
@@ -45,9 +49,9 @@ export const UI = (() => {
         console.log(data.condition)
 
         displayLogic.description.textContent = data.condition;
-        displayLogic.city.textContent = data.location;
-        displayLogic.date.textContent = "19 march";
-        displayLogic.time.textContent = "12:39";
+        displayLogic.city.textContent = weatherPull.splitLocation(data.location);
+        displayLogic.date.textContent = format(date, "EEEE d MMMM yyyy" );
+        displayLogic.time.textContent = format(date, "h:mm a");
         displayLogic.temperature.textContent = data.temp;
 
         displayLogic.statsFeelsLike.textContent = data.feelsLike;
@@ -55,11 +59,11 @@ export const UI = (() => {
         displayLogic.statsChanceOfRain.textContent = data.chanceOfRain;
         displayLogic.statsWindSpeed.textContent = data.windSpeed;
 
-        displayLogic.forecastDayPlusOneDay.textContent = "19 march plus one";
+        displayLogic.forecastDayPlusOneDay.textContent = format(datePlusOne, "EEEE");
         displayLogic.forecastDayPlusOneTempHigh.textContent = data.dayOneTempHigh;
         displayLogic.forecastDayPlusOneTempLow.textContent = data.dayOneTempLow;
 
-        displayLogic.forecastDayPlusTwoDay.textContent = "19 march plus two";
+        displayLogic.forecastDayPlusTwoDay.textContent = format(datePlusTwo, "EEEE");
         displayLogic.forecastDayPlusTwoTempHigh.textContent = data.dayTwoTempHigh;
         displayLogic.forecastDayPlusTwoTempLow.textContent = data.dayTwoTempLow;
     }
