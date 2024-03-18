@@ -32,7 +32,7 @@ export const weatherPull = (function () {
             feelsLike: `${Math.round(data.forecast.forecastday[0].hour[currentHour].feelslike_c)}°`,
             location: `${data.location.name}, ${data.location.city}`,
             condition: data.forecast.forecastday[0].hour[currentHour].condition.text,
-            precip: `${data.forecast.forecastday[0].hour[currentHour].precip_mm} mm`,
+            humidity: `${data.forecast.forecastday[0].day.avghumidity} %`,
             windSpeed: `${data.forecast.forecastday[0].hour[currentHour].wind_kph} km/h`,
             chanceOfRain: `${data.forecast.forecastday[0].hour[currentHour].chance_of_rain} %`,
             dayOneTempHigh: `${Math.round(data.forecast.forecastday[1].day.maxtemp_c)}°`,

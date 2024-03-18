@@ -51,7 +51,7 @@ export const UI = (() => {
         displayLogic.temperature.textContent = data.temp;
 
         displayLogic.statsFeelsLike.textContent = data.feelsLike;
-        displayLogic.Humidity.textContent = data.precip;
+        displayLogic.statsHumidity.textContent = data.humidity;
         displayLogic.statsChanceOfRain.textContent = data.chanceOfRain;
         displayLogic.statsWindSpeed.textContent = data.windSpeed;
 
