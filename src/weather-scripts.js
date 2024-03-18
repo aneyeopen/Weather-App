@@ -41,6 +41,7 @@ export const weatherPull = (function () {
             dayTwoTempHigh: `${Math.round(data.forecast.forecastday[2].day.maxtemp_c)}°`,
             dayTwoTempLow: `${Math.round(data.forecast.forecastday[2].day.mintemp_c)}°`,
             dayTwoCondition: data.forecast.forecastday[2].day.condition.text,
+            localTime: data.location.localtime
             }
 
         

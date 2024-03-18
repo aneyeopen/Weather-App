@@ -1,12 +1,10 @@
-import { format, addDays } from "date-fns";
+import { format, addDays, parse, parseISO } from "date-fns";
 import { weatherPull } from "./weather-scripts";
 
 export const UI = (() => {
     
     const currSideString = "left";
-    const date = new Date();
-    const datePlusOne = addDays(date, 1);
-    const datePlusTwo = addDays(date, 2);
+    
 
     
     function appendSideToID(sideString, idString) {
@@ -46,7 +44,9 @@ export const UI = (() => {
 
     function updateWeatherDisplay (data) {
 
-        console.log(data.condition)
+        const date = new Date(data.localTime)
+        const datePlusOne = addDays(date, 1);
+        const datePlusTwo = addDays(date, 2);
 
         displayLogic.description.textContent = data.condition;
         displayLogic.city.textContent = weatherPull.splitLocation(data.location);
