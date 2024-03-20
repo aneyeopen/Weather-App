@@ -1,4 +1,4 @@
-import { format, addDays, parse, parseISO } from "date-fns";
+import { format, addDays, isWithinInterval } from "date-fns";
 import { weatherPull } from "./weather-scripts";
 
 export const UI = (() => {
@@ -37,7 +37,11 @@ export const UI = (() => {
         forecastDayPlusTwoDay: document.getElementById(appendSideToID(currSideString, "DayPlusTwoDay")),
         forecastDayPlusTwoTempHigh: document.getElementById(appendSideToID(currSideString, "DayPlusTwoTempHigh")),
         forecastDayPlusTwoTempLow: document.getElementById(appendSideToID(currSideString, "DayPlusTwoTempLow")),
-        forecastDayPlusTwoIcon: document.getElementById(appendSideToID(currSideString, "DayPlusTwoIcon"))
+        forecastDayPlusTwoIcon: document.getElementById(appendSideToID(currSideString, "DayPlusTwoIcon")),
+
+        //div to change bg//
+
+        form: document.querySelector(appendSideToID(".", appendSideToID(currSideString, "weatherForm")))
 
 
     }
@@ -66,6 +70,37 @@ export const UI = (() => {
         displayLogic.forecastDayPlusTwoDay.textContent = format(datePlusTwo, "EEEE");
         displayLogic.forecastDayPlusTwoTempHigh.textContent = data.dayTwoTempHigh;
         displayLogic.forecastDayPlusTwoTempLow.textContent = data.dayTwoTempLow;
+    }
+
+    function changeIcons(mainCondition, dayPlusOneCondition, dayPlusTwoCondition, localDate) {
+        
+
+    }
+
+    function isDay(localDate) {
+        const hours = localDate.getHours();
+        if(hours > 6 && hours < 20) {
+            return true;
+        }else return false;
+    }
+
+    const condArray = {
+        rainConditions: ["rain", "shower", "sleet"],
+        snowConditions: ["snow", "icy"],
+        cloudConditions: ["cloudy", "overcast"],
+        stormConditions: ["storm", "thunder"],
+        hailConditions:  ["hail"]
+    }
+
+    
+    function checkCondition(conditionString, array) {
+        
+        for (let i = 0; 0 < i < array.length; i++) {
+            if (conditionString.includes(array[i])){
+                return true;
+            }
+        }
+        return false;
     }
 
     return {
