@@ -26,7 +26,7 @@ body {
   overflow: hidden;
 }
 
-.weatherFormLeft, .weatherFormRight {
+.leftWeatherForm, .rightWeatherForm {
   min-width: 50%;
   height: 100vh;
   margin: auto;
@@ -35,18 +35,18 @@ body {
   justify-content: space-around;
 }
 
-.weatherFormLeft {
+.leftWeatherForm {
   border-right: black solid 3px;
-  background: url(./Resources/Backgrounds/Night.gif);
-  background-size: cover;
-  background-position: center;
+  background: url(./Resources/Backgrounds/night.gif);
+  background-size: cover !important;
+  background-position: center !important;
 }
 
-.weatherFormRight {
+.rightWeatherForm {
   border-left: black solid 3px;
-  background: url(./Resources/Backgrounds/Rain.gif);
-  background-size: cover;
-  background-position: center;
+  background: url(./Resources/Backgrounds/rain.gif);
+  background-size: cover !important;
+  background-position: center !important;
 }
 
 .searchBox {

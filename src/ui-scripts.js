@@ -5,7 +5,6 @@ export const UI = (() => {
     
     const currSideString = "left";
     
-
     
     function appendSideToID(sideString, idString) {
         return sideString + idString
@@ -41,7 +40,7 @@ export const UI = (() => {
 
         //div to change bg//
 
-        form: document.querySelector(appendSideToID(".", appendSideToID(currSideString, "weatherForm")))
+        form: document.querySelector(appendSideToID(".", appendSideToID(currSideString, "WeatherForm")))
 
 
     }
@@ -70,10 +69,52 @@ export const UI = (() => {
         displayLogic.forecastDayPlusTwoDay.textContent = format(datePlusTwo, "EEEE");
         displayLogic.forecastDayPlusTwoTempHigh.textContent = data.dayTwoTempHigh;
         displayLogic.forecastDayPlusTwoTempLow.textContent = data.dayTwoTempLow;
+
+
+        changeIcons(data.condition, data.dayOneCondition, data.dayTwoCondition, date);
     }
 
     function changeIcons(mainCondition, dayPlusOneCondition, dayPlusTwoCondition, localDate) {
+        // change main //
+        let mainCondVar = checkCondition(mainCondition, condArray, localDate)
+        displayLogic.icon.src = `../src/Resources/Icons/WeatherIcons/${mainCondVar}.svg`;
+        if (isDay(localDate)) {
+            if(mainCondVar == "cloudy"){
+                displayLogic.form.style.background = `url(../src/Resources/Backgrounds/sunny.gif`;
+            }else if (mainCondVar == "storm" || mainCondVar == "hail"){
+                displayLogic.form.style.background = `url(../src/Resources/Backgrounds/rain.gif`;
+            } else{
+                displayLogic.form.style.background = `url(../src/Resources/Backgrounds/${mainCondVar}.gif`;
+                displayLogic.form.style.background-size == "cover";
+                displayLogic.form.style.background-position == "center";
+            }
+        } else {
+            displayLogic.form.style.background = `url(../src/Resources/Backgrounds/night.gif`;
+            if (mainCondVar == "sunny"){
+                displayLogic.icon.src = `../src/Resources/Icons/WeatherIcons/night.svg`;
+            }
+        }
+
+        // change dayOne //
+        let dayOneCondVar = checkCondition(dayPlusOneCondition, condArray, localDate)
+        console.log(dayOneCondVar)
+
+        if (dayOneCondVar == "night"){
+            displayLogic.forecastDayPlusOneIcon.src = `../src/Resources/Icons/WeatherIcons/sunny.svg`;
+        } else {
+            displayLogic.forecastDayPlusOneIcon.src = `../src/Resources/Icons/WeatherIcons/${dayOneCondVar}.svg`;
+        }
         
+
+         // change dayTwo //
+        let dayTwoCondVar = checkCondition(dayPlusTwoCondition, condArray, localDate);
+        console.log(dayTwoCondVar)
+        if (dayTwoCondVar == "night"){
+            displayLogic.forecastDayPlusTwoIcon.src = `../src/Resources/Icons/WeatherIcons/sunny.svg`;
+        } else {
+            displayLogic.forecastDayPlusTwoIcon.src = `../src/Resources/Icons/WeatherIcons/${dayTwoCondVar}.svg`;
+        }
+
 
     }
 
@@ -84,25 +125,41 @@ export const UI = (() => {
         }else return false;
     }
 
-    const condArray = {
-        rainConditions: ["rain", "shower", "sleet"],
-        snowConditions: ["snow", "icy"],
-        cloudConditions: ["cloudy", "overcast"],
-        stormConditions: ["storm", "thunder"],
-        hailConditions:  ["hail"]
-    }
+    const condArray = [
+        ["rain", "shower", "sleet", "drizzle"],
+        ["snow", "icy"],
+        ["cloudy", "overcast"],
+        ["storm", "thunder"],
+        ["hail"],
+    ];
+
+
+
 
     
-    function checkCondition(conditionString, array) {
-        
-        for (let i = 0; 0 < i < array.length; i++) {
-            if (conditionString.includes(array[i])){
-                return true;
+    function checkCondition(conditionString, condObj, date) {
+        let condStr = conditionString.toLowerCase();
+        let matchFound = false;
+        let varCond = "";
+        for (let j = 0; j < condObj.length; j++){
+            for (let i = 0; i < condObj[j].length; i++) {
+                if (condStr.includes(condObj[j][i])){
+                    console.log(condObj[j][i])
+                    varCond = condObj[j][0];
+                    matchFound = true;
+                }
             }
         }
-        return false;
+        if (matchFound) {
+            return varCond;
+        } else if (isDay(date)){
+            varCond = "sunny";
+            return varCond;
+        } else {
+            varCond = "night";
+            return  varCond;
+        }
     }
-
     return {
         appendSideToID,
         displayLogic,
