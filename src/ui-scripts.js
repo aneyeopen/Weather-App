@@ -91,25 +91,25 @@ export const UI = (() => {
     function changeIcons(mainCondition, dayPlusOneCondition, dayPlusTwoCondition, localDate) {
         // change main //
         let mainCondVar = checkCondition(mainCondition, condArray, localDate)
-        displayLogic.icon.src = `../src/Resources/Icons/WeatherIcons/${mainCondVar}.svg`;
+        displayLogic.icon.src = `Weather-App/src/Resources/Icons/WeatherIcons/${mainCondVar}.svg`;
         if (isDay(localDate)) {
             if(mainCondVar == "cloudy" || mainCondVar == "sunny" || mainCondVar == "snow"){
                 displayLogic.form.style.color = "#272327";
             }
             if(mainCondVar == "cloudy"){
-                displayLogic.form.style.background = `url(../src/Resources/Backgrounds/sunny.gif`;
+                displayLogic.form.style.background = `url(Weather-App/src/Resources/Backgrounds/sunny.gif`;
 
             }else if (mainCondVar == "storm" || mainCondVar == "hail"){
-                displayLogic.form.style.background = `url(../src/Resources/Backgrounds/rain.gif`;
+                displayLogic.form.style.background = `url(Weather-App/src/Resources/Backgrounds/rain.gif`;
             } else{
-                displayLogic.form.style.background = `url(../src/Resources/Backgrounds/${mainCondVar}.gif`;
+                displayLogic.form.style.background = `url(Weather-App/src/Resources/Backgrounds/${mainCondVar}.gif`;
                 displayLogic.form.style.background-size == "cover";
                 displayLogic.form.style.background-position == "center";
             }
         } else {
-            displayLogic.form.style.background = `url(../src/Resources/Backgrounds/night.gif`;
+            displayLogic.form.style.background = `url(Weather-App/src/Resources/Backgrounds/night.gif`;
             if (mainCondVar == "sunny"){
-                displayLogic.icon.src = `../src/Resources/Icons/WeatherIcons/night.svg`;
+                displayLogic.icon.src = `Weather-App/src/Resources/Icons/WeatherIcons/night.svg`;
             }
         }
 
@@ -118,9 +118,9 @@ export const UI = (() => {
         
 
         if (dayOneCondVar == "night"){
-            displayLogic.forecastDayPlusOneIcon.src = `../src/Resources/Icons/WeatherIcons/sunny.svg`;
+            displayLogic.forecastDayPlusOneIcon.src = `Weather-App/src/Resources/Icons/WeatherIcons/sunny.svg`;
         } else {
-            displayLogic.forecastDayPlusOneIcon.src = `../src/Resources/Icons/WeatherIcons/${dayOneCondVar}.svg`;
+            displayLogic.forecastDayPlusOneIcon.src = `Weather-App/src/Resources/Icons/WeatherIcons/${dayOneCondVar}.svg`;
         }
         
 
@@ -128,9 +128,9 @@ export const UI = (() => {
         let dayTwoCondVar = checkCondition(dayPlusTwoCondition, condArray, localDate);
         
         if (dayTwoCondVar == "night"){
-            displayLogic.forecastDayPlusTwoIcon.src = `../src/Resources/Icons/WeatherIcons/sunny.svg`;
+            displayLogic.forecastDayPlusTwoIcon.src = `Weather-App/src/Resources/Icons/WeatherIcons/sunny.svg`;
         } else {
-            displayLogic.forecastDayPlusTwoIcon.src = `../src/Resources/Icons/WeatherIcons/${dayTwoCondVar}.svg`;
+            displayLogic.forecastDayPlusTwoIcon.src = `Weather-App/src/Resources/Icons/WeatherIcons/${dayTwoCondVar}.svg`;
         }
 
 
