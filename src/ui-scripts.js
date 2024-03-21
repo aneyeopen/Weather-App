@@ -87,7 +87,7 @@ export const UI = (() => {
 
         changeIcons(data.condition, data.dayOneCondition, data.dayTwoCondition, date);
     }
-///saddsa///
+///saddsahjvjhhjv///
     function changeIcons(mainCondition, dayPlusOneCondition, dayPlusTwoCondition, localDate) {
         // change main //
         let mainCondVar = checkCondition(mainCondition, condArray, localDate)
