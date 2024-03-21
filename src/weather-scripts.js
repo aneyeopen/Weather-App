@@ -23,9 +23,11 @@ export const weatherPull = (function () {
     }
 
     function formatWeatherData(data) {
-        const currentHour = 12;
 
+        let currentHour = new Date(data.location.localtime).getHours()
+        
         const weatherData = {
+            localTime: data.location.localtime,
             temp: `${Math.round(data.forecast.forecastday[0].hour[currentHour].temp_c)}°`,
             tempHigh: `${Math.round(data.forecast.forecastday[0].day.maxtemp_c)}°`,
             tempLow: `${Math.round(data.forecast.forecastday[0].day.mintemp_c)}°`,
@@ -40,8 +42,8 @@ export const weatherPull = (function () {
             dayOneCondition: data.forecast.forecastday[1].day.condition.text,
             dayTwoTempHigh: `${Math.round(data.forecast.forecastday[2].day.maxtemp_c)}°`,
             dayTwoTempLow: `${Math.round(data.forecast.forecastday[2].day.mintemp_c)}°`,
-            dayTwoCondition: data.forecast.forecastday[2].day.condition.text,
-            localTime: data.location.localtime
+            dayTwoCondition: data.forecast.forecastday[2].day.condition.text
+            
             }
 
         
@@ -92,5 +94,6 @@ export const weatherPull = (function () {
         formatWeatherData,
         loadWeatherData,
         splitLocation
+        
     }
 })();

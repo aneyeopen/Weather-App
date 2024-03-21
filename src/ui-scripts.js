@@ -1,51 +1,65 @@
 import { format, addDays, isWithinInterval } from "date-fns";
 import { weatherPull } from "./weather-scripts";
 
+
 export const UI = (() => {
     
-    const currSideString = "left";
-    
+    let currSideString = ""
+
+    function checkSide (side) {
+        currSideString = side;
+    }
     
     function appendSideToID(sideString, idString) {
         return sideString + idString
     }
 
-    const displayLogic = {
-        // main form //
-        description: document.getElementById(appendSideToID(currSideString, "Desc")),
-        city: document.getElementById(appendSideToID(currSideString, "City")),
-        date: document.getElementById(appendSideToID(currSideString, "Date")),
-        time: document.getElementById(appendSideToID(currSideString, "Time")),
-        temperature: document.getElementById(appendSideToID(currSideString, "Temp")),
-        icon: document.getElementById(appendSideToID(currSideString, "Icon")),
+    let displayLogic;
 
-        // stats //
+    function initializeDisplayLogic() {
+        if (currSideString) {
+            displayLogic = {
 
-        statsFeelsLike: document.getElementById(appendSideToID(currSideString, "FeelsLike")),
-        statsHumidity: document.getElementById(appendSideToID(currSideString, "Humidity")),
-        statsChanceOfRain: document.getElementById(appendSideToID(currSideString, "ChanceOfRain")),
-        statsWindSpeed: document.getElementById(appendSideToID(currSideString, "WindSpeed")),
+                // main form //
+                description: document.getElementById(appendSideToID(currSideString, "Desc")),
+                city: document.getElementById(appendSideToID(currSideString, "City")),
+                date: document.getElementById(appendSideToID(currSideString, "Date")),
+                time: document.getElementById(appendSideToID(currSideString, "Time")),
+                temperature: document.getElementById(appendSideToID(currSideString, "Temp")),
+                icon: document.getElementById(appendSideToID(currSideString, "Icon")),
 
-        // forecast //
+                // stats //
 
-        forecastDayPlusOneDay: document.getElementById(appendSideToID(currSideString, "DayPlusOneDay")),
-        forecastDayPlusOneTempHigh: document.getElementById(appendSideToID(currSideString, "DayPlusOneTempHigh")),
-        forecastDayPlusOneTempLow: document.getElementById(appendSideToID(currSideString, "DayPlusOneTempLow")),
-        forecastDayPlusOneIcon: document.getElementById(appendSideToID(currSideString, "DayPlusOneIcon")),
+                statsFeelsLike: document.getElementById(appendSideToID(currSideString, "FeelsLike")),
+                statsHumidity: document.getElementById(appendSideToID(currSideString, "Humidity")),
+                statsChanceOfRain: document.getElementById(appendSideToID(currSideString, "ChanceOfRain")),
+                statsWindSpeed: document.getElementById(appendSideToID(currSideString, "WindSpeed")),
 
-        forecastDayPlusTwoDay: document.getElementById(appendSideToID(currSideString, "DayPlusTwoDay")),
-        forecastDayPlusTwoTempHigh: document.getElementById(appendSideToID(currSideString, "DayPlusTwoTempHigh")),
-        forecastDayPlusTwoTempLow: document.getElementById(appendSideToID(currSideString, "DayPlusTwoTempLow")),
-        forecastDayPlusTwoIcon: document.getElementById(appendSideToID(currSideString, "DayPlusTwoIcon")),
+                // forecast //
 
-        //div to change bg//
+                forecastDayPlusOneDay: document.getElementById(appendSideToID(currSideString, "DayPlusOneDay")),
+                forecastDayPlusOneTempHigh: document.getElementById(appendSideToID(currSideString, "DayPlusOneTempHigh")),
+                forecastDayPlusOneTempLow: document.getElementById(appendSideToID(currSideString, "DayPlusOneTempLow")),
+                forecastDayPlusOneIcon: document.getElementById(appendSideToID(currSideString, "DayPlusOneIcon")),
 
-        form: document.querySelector(appendSideToID(".", appendSideToID(currSideString, "WeatherForm")))
+                forecastDayPlusTwoDay: document.getElementById(appendSideToID(currSideString, "DayPlusTwoDay")),
+                forecastDayPlusTwoTempHigh: document.getElementById(appendSideToID(currSideString, "DayPlusTwoTempHigh")),
+                forecastDayPlusTwoTempLow: document.getElementById(appendSideToID(currSideString, "DayPlusTwoTempLow")),
+                forecastDayPlusTwoIcon: document.getElementById(appendSideToID(currSideString, "DayPlusTwoIcon")),
+
+                //div to change bg//
+
+                form: document.querySelector(appendSideToID(".", appendSideToID(currSideString, "WeatherForm")))
 
 
-    }
+                }
+            }
+        }
+        
 
     function updateWeatherDisplay (data) {
+        console.log(currSideString)
+        initializeDisplayLogic();
 
         const date = new Date(data.localTime)
         const datePlusOne = addDays(date, 1);
@@ -79,8 +93,12 @@ export const UI = (() => {
         let mainCondVar = checkCondition(mainCondition, condArray, localDate)
         displayLogic.icon.src = `../src/Resources/Icons/WeatherIcons/${mainCondVar}.svg`;
         if (isDay(localDate)) {
+            if(mainCondVar == "cloudy" || mainCondVar == "sunny" || mainCondVar == "snow"){
+                displayLogic.form.style.color = "#272327";
+            }
             if(mainCondVar == "cloudy"){
                 displayLogic.form.style.background = `url(../src/Resources/Backgrounds/sunny.gif`;
+
             }else if (mainCondVar == "storm" || mainCondVar == "hail"){
                 displayLogic.form.style.background = `url(../src/Resources/Backgrounds/rain.gif`;
             } else{
@@ -97,7 +115,7 @@ export const UI = (() => {
 
         // change dayOne //
         let dayOneCondVar = checkCondition(dayPlusOneCondition, condArray, localDate)
-        console.log(dayOneCondVar)
+        
 
         if (dayOneCondVar == "night"){
             displayLogic.forecastDayPlusOneIcon.src = `../src/Resources/Icons/WeatherIcons/sunny.svg`;
@@ -108,7 +126,7 @@ export const UI = (() => {
 
          // change dayTwo //
         let dayTwoCondVar = checkCondition(dayPlusTwoCondition, condArray, localDate);
-        console.log(dayTwoCondVar)
+        
         if (dayTwoCondVar == "night"){
             displayLogic.forecastDayPlusTwoIcon.src = `../src/Resources/Icons/WeatherIcons/sunny.svg`;
         } else {
@@ -144,7 +162,6 @@ export const UI = (() => {
         for (let j = 0; j < condObj.length; j++){
             for (let i = 0; i < condObj[j].length; i++) {
                 if (condStr.includes(condObj[j][i])){
-                    console.log(condObj[j][i])
                     varCond = condObj[j][0];
                     matchFound = true;
                 }
@@ -163,6 +180,8 @@ export const UI = (() => {
     return {
         appendSideToID,
         displayLogic,
-        updateWeatherDisplay
+        updateWeatherDisplay,
+        currSideString,
+        checkSide
     }
 })()

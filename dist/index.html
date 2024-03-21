@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../src/style.css" />
 </head>
 <body>
-    <div class="header">Weather or Not</div>
     <div class="main">
         <div class="leftWeatherForm">
             <form class="searchBox" id="leftSearchForm">
@@ -72,62 +71,62 @@
             </div>
         </div>
         <div class="rightWeatherForm">
-            <div class="searchBox">
-                <input type="text" class="searchInput" placeholder="Search Location....">
-                <div class="searchIcon"></div>
-            </div>
+            <form class="searchBox" id="rightSearchForm">
+                <input type="text" class="searchInput" id="rightSearch" placeholder="Search Location....">
+            </form>
             <div class="weatherFormMain">
                 <div class="weatherDetails">
-                    <div class="weatherDetails__description">Clear Skies</div>
-                    <div class="weatherDetails__city">London</div>
+                    <div class="weatherDetails__description" id="rightDesc">Few Clouds</div>
+                    <div class="weatherDetails__city" id="rightCity">Melbourne</div>
                     <div class="weatherDetails__subContainer">
-                        <div class="weatherDetails__date">Sunday, 10th Dec '23</div>
-                        <div class="weatherDetails__time">12:44 PM</div>
+                        <div class="weatherDetails__date" id="rightDate">Sunday, 10th Dec '23</div>
+                        <div class="weatherDetails__time" id="rightTime">10:44 PM</div>
                     </div>
-                    <div class="weatherDetails__temp">44 °C</div>
-                    <div class="weatherDetails__units-c"></div>
-                    <div class="weatherDetails__units-f"></div>
-                    <img class="weatherDetails__icon" src="../src/Resources/Icons/WeatherIcons/sunny.svg"></img>
+                    <div class="weatherDetails__temp" id="rightTemp">17 °C</div>
+                    <div class="weatherDetails__units-c" id="rightunits-c"></div>
+                    <div class="weatherDetails__units-f" id="rightunits-f"></div>
+                    <img class="weatherDetails__icon" id="rightIcon" src="../src/Resources/Icons/WeatherIcons/cloudy.svg"></img>
                 </div>
                 <div class="weatherStatsContainer">
                     <div class="weatherStats">
-                        <img class="statsIcon" src="../src/Resources/Icons/DetailIcons/thermometer.svg"></img>
-                        <div class="statsLabel">Feels Like</div>
-                        <div class="statsData" id="weatherStats__feelsLike">50 °C</div>
+                        <img class="statsIcon"  src="../src/Resources/Icons/DetailIcons/thermometer.svg"></img>
+                        <div class="statsLabel" >Feels Like </div>
+                        <div class="statsData" id="rightFeelsLike">15 °C</div>
                     </div>
                     <div class="weatherStats">
-                        <img class="statsIcon" src="../src/Resources/Icons/DetailIcons/humidity.svg"></img>
+                        <img class="statsIcon"  src="../src/Resources/Icons/DetailIcons/humidity.svg"></img>
                         <div class="statsLabel">Humidity</div>
-                        <div class="statsData" id="weatherStats__humidity">99 %</div>
+                        <div class="statsData" id="rightHumidity">54 %</div>
                     </div>
                     <div class="weatherStats">
-                        <img class="statsIcon" src="../src/Resources/Icons/DetailIcons/umbrella.svg"></img>
+                        <img class="statsIcon"  src="../src/Resources/Icons/DetailIcons/umbrella.svg"></img>
                         <div class="statsLabel">Chance of Rain</div>
-                        <div class="statsData" id="weatherStats__rainChance">102 %</div>
+                        <div class="statsData" id="rightChanceOfRain">16 %</div>
                     </div>
                     <div class="weatherStats">
                         <img class="statsIcon" src="../src/Resources/Icons/DetailIcons/windsock.svg"></img>
                         <div class="statsLabel">Wind Speed</div>
-                        <div class="statsData" id="weatherStats__windSpeed">100 km/h</div>
+                        <div class="statsData" id="rightWindSpeed">15.4 km/h</div>
                     </div>
                 </div>
             </div>
+            
             <div class="forecastContainer">
                 <div class="forecastDaily" id="dayPlusOne">
-                    <div class="forecastDaily__day">Monday</div>
+                    <div class="forecastDaily__day" id="rightDayPlusOneDay" >Monday</div>
                     <div class="forecastDaily__temp">
-                        <div class="forecastDaily__tempHigh"> 63 °C</div>
-                        <div class="forecastDaily__tempLow"> 65 °C</div>
+                        <div class="forecastDaily__tempHigh" id="rightDayPlusOneTempHigh"> 18 °C</div>
+                        <div class="forecastDaily__tempLow" id="rightDayPlusOneTempLow"> 12 °C</div>
                     </div>
-                    <img class="forecastDaily__icon" src="../src/Resources/Icons/WeatherIcons/hail.svg"></img>
+                    <img class="forecastDaily__icon" id="rightDayPlusOneIcon" src="../src/Resources/Icons/WeatherIcons/hail.svg"></img>
                 </div>
                 <div class="forecastDaily" id="dayPlusTwo">
-                    <div class="forecastDaily__day">Tuesday</div>
+                    <div class="forecastDaily__day" id="rightDayPlusTwoDay">Tuesday</div>
                     <div class="forecastDaily__temp">
-                        <div class="forecastDaily__tempHigh"> 1 °C</div>
-                        <div class="forecastDaily__tempLow">-2 °C</div>
+                        <div class="forecastDaily__tempHigh" id="rightDayPlusTwoTempHigh"> 20 °C</div>
+                        <div class="forecastDaily__tempLow" id="rightDayPlusTwoTempLow"> 11 °C</div>
                     </div>
-                    <img class="forecastDaily__icon" src="../src/Resources/Icons/WeatherIcons/hail.svg"></img>
+                    <img class="forecastDaily__icon" id="rightDayPlusTwoIcon" src="../src/Resources/Icons/WeatherIcons/hail.svg"></img>
                 </div>
             </div>
         </div>

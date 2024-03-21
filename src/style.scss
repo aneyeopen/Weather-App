@@ -1,5 +1,6 @@
 $fonts: 'Poppins', Helvetica, sans-serif;
 $primary-color: #f1f0f1;
+$secondary-color: #272327;
 $spacing: 0;
 
 body {
@@ -24,7 +25,6 @@ body {
     display: flex;
     flex-direction: row;
     font-family: $fonts;
-    color: $primary-color;
     padding: $spacing;
     align-items: center;
     box-sizing: border-box;
@@ -45,6 +45,8 @@ body {
     background: url(./Resources/Backgrounds/night.gif);
     background-size: cover !important;
     background-position: center !important;
+    color: $primary-color;
+
 
 }
 
@@ -53,6 +55,8 @@ body {
     background: url(./Resources/Backgrounds/rain.gif);
     background-size: cover !important;
     background-position: center !important;
+    color: $primary-color;
+
 
 }
 .searchBox {
@@ -87,7 +91,7 @@ input[type=text] {
     border-radius: 2px;
     padding: 8px;
     background-color: rgba(255, 255, 255, 0);
-    font-size: 2.2rem;
+    font-size: 2.2em;
 }
 
 
@@ -103,7 +107,7 @@ input[type=text] {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 1em;
 }
 
 .weatherStats {
@@ -111,7 +115,7 @@ input[type=text] {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 1em;
 }
 
 .statsData {
@@ -157,7 +161,7 @@ input[type=text] {
 .weatherDetails{
 
     &__description{
-        font-size: 2.5rem;
+        font-size: 2.5em;
         font-weight: 500;
     }
 
@@ -167,17 +171,17 @@ input[type=text] {
     }
 
     &__city{
-        font-size: 1.8rem;
+        font-size: 1.8em;
         font-weight: 400;
     }
 
     &__date, &__time{
-        font-size: 1.3rem;
+        font-size: 1.3em;
         margin: 5px;
     }
 
     &__temp {
-        font-size: 3.2rem;
+        font-size: 3.2em;
         font-weight: 700;
     }
 
@@ -195,4 +199,72 @@ input[type=text] {
 .statsIcon{
     height: 80px;
     width: 80px;
+}
+
+@media only screen and (max-width: 900px) {
+    .main, body {
+        flex-direction: column;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+    .leftWeatherForm, .rightWeatherForm {
+        width: 100%;
+    }
+    .rightWeatherForm {
+        border-style: none;
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    .weatherDetails{
+
+        padding-left: 15px;
+
+        &__description{
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+    
+        &__subContainer{
+            display: flex;
+            flex-direction: row;
+        }
+    
+        &__city{
+            font-size: 1em;
+            font-weight: 400;
+        }
+    
+        &__date, &__time{
+            font-size: 0.8em;
+            margin: 5px;
+        }
+    
+        &__temp {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+    
+        &__icon {
+            height: 80px;
+            width: auto;
+            margin-top: -45px;
+        }
+    
+    
+    
+    }
+
+    .statsIcon{
+        height: 40px;
+        width: 40px;
+    }
+
+    .searchInput{
+        border-radius: 2px;
+        padding: 8px;
+        background-color: rgba(255, 255, 255, 0);
+        font-size: 1.1em;
+    }
 }

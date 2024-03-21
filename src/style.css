@@ -19,7 +19,6 @@ body {
   display: flex;
   flex-direction: row;
   font-family: "Poppins", Helvetica, sans-serif;
-  color: #f1f0f1;
   padding: 0;
   align-items: center;
   box-sizing: border-box;
@@ -40,6 +39,7 @@ body {
   background: url(./Resources/Backgrounds/night.gif);
   background-size: cover !important;
   background-position: center !important;
+  color: #f1f0f1;
 }
 
 .rightWeatherForm {
@@ -47,6 +47,7 @@ body {
   background: url(./Resources/Backgrounds/rain.gif);
   background-size: cover !important;
   background-position: center !important;
+  color: #f1f0f1;
 }
 
 .searchBox {
@@ -81,7 +82,7 @@ input[type=text]::placeholder {
   border-radius: 2px;
   padding: 8px;
   background-color: rgba(255, 255, 255, 0);
-  font-size: 2.2rem;
+  font-size: 2.2em;
 }
 
 .weatherFormMain {
@@ -96,7 +97,7 @@ input[type=text]::placeholder {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1em;
 }
 
 .weatherStats {
@@ -104,7 +105,7 @@ input[type=text]::placeholder {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 1em;
 }
 
 .statsData {
@@ -142,7 +143,7 @@ input[type=text]::placeholder {
 }
 
 .weatherDetails__description {
-  font-size: 2.5rem;
+  font-size: 2.5em;
   font-weight: 500;
 }
 .weatherDetails__subContainer {
@@ -150,15 +151,15 @@ input[type=text]::placeholder {
   flex-direction: row;
 }
 .weatherDetails__city {
-  font-size: 1.8rem;
+  font-size: 1.8em;
   font-weight: 400;
 }
 .weatherDetails__date, .weatherDetails__time {
-  font-size: 1.3rem;
+  font-size: 1.3em;
   margin: 5px;
 }
 .weatherDetails__temp {
-  font-size: 3.2rem;
+  font-size: 3.2em;
   font-weight: 700;
 }
 .weatherDetails__icon {
@@ -170,4 +171,58 @@ input[type=text]::placeholder {
 .statsIcon {
   height: 80px;
   width: 80px;
+}
+
+@media only screen and (max-width: 900px) {
+  .main, body {
+    flex-direction: column;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .leftWeatherForm, .rightWeatherForm {
+    width: 100%;
+  }
+  .rightWeatherForm {
+    border-style: none;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .weatherDetails {
+    padding-left: 15px;
+  }
+  .weatherDetails__description {
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+  .weatherDetails__subContainer {
+    display: flex;
+    flex-direction: row;
+  }
+  .weatherDetails__city {
+    font-size: 1em;
+    font-weight: 400;
+  }
+  .weatherDetails__date, .weatherDetails__time {
+    font-size: 0.8em;
+    margin: 5px;
+  }
+  .weatherDetails__temp {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+  .weatherDetails__icon {
+    height: 80px;
+    width: auto;
+    margin-top: -45px;
+  }
+  .statsIcon {
+    height: 40px;
+    width: 40px;
+  }
+  .searchInput {
+    border-radius: 2px;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1.1em;
+  }
 }/*# sourceMappingURL=style.css.map */
