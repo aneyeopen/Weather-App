@@ -110,6 +110,7 @@ export const UI = (() => {
             displayLogic.form.style.background = `url(../src/Resources/Backgrounds/night.gif`;
             if (mainCondVar == "sunny"){
                 displayLogic.icon.src = `../src/Resources/Icons/WeatherIcons/night.svg`;
+                displayLogic.form.style.color =  "#f1f0f1";
             }
         }
 
