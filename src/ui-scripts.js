@@ -112,6 +112,7 @@ export const UI = (() => {
             displayLogic.form.style.background = `url(https://aneyeopen.github.io/Weather-App/src/Resources/Backgrounds/night.gif`;
             if (mainCondVar == "sunny"){
                 displayLogic.icon.src = `https://aneyeopen.github.io/Weather-App/src/Resources/Icons/WeatherIcons/night.svg`;
+                displayLogic.form.style.color =  "#f1f0f1";
             }
         }
 
