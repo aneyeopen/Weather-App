@@ -95,6 +95,8 @@ export const UI = (() => {
         if (isDay(localDate)) {
             if(mainCondVar == "cloudy" || mainCondVar == "sunny" || mainCondVar == "snow"){
                 displayLogic.form.style.color = "#272327";
+            } else {
+                displayLogic.form.style.color = " #f1f0f1";
             }
             if(mainCondVar == "cloudy"){
                 displayLogic.form.style.background = `url(https://aneyeopen.github.io/Weather-App/src/Resources/Backgrounds/sunny.gif`;
